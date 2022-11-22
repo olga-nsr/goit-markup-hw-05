@@ -590,7 +590,7 @@ margin-bottom: 50px;
   position: relative;
   overflow: hidden;
 }
-.overlay {
+.overlay-port {
   position: absolute;
   top: 0;
   left: 0;
@@ -608,10 +608,16 @@ margin-bottom: 50px;
   transition:  transform 250ms;
   user-select: none;
 }
-.portfolio-item:hover .overlay {
+.portfolio-item:hover .overlay-port {
   transform: translateY(0);
-
-
+}
+.overlay-title {
+  text-transform: none;
+   text-align: left;
+  font-weight: 400;
+  line-height: calc(28/18);
+font-size: 18px;
+letter-spacing: 0.03em;
 }
 
 
