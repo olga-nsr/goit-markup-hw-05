@@ -35,7 +35,7 @@ body {
 
 }
 .card-set-item {
-flex-basic: calc((100% - var(--indent) * (var(--items) - 1)) / (var(--items)));
+  flex-basic: calc((100% - var(--indent) * (var(--items) - 1)) / (var(--items)));
 }
 
 
@@ -120,6 +120,9 @@ address {
   | Шапка сайту
   |============================
 */
+html {
+  scroll-behavior: smooth;
+}
 .header-container {
   display: flex;
   align-items: center;
@@ -158,6 +161,8 @@ address {
   align-items: center;
 }
 .nav-link {
+  position: relative;
+  bottom: 0;
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
@@ -171,18 +176,41 @@ address {
   transition-timing-function: ease-out;
 
 }
-
-.active {
-  color: var(--accent-color);
-}
 .nav-link:hover,
 .nav-link:focus {
   color: var(--accent-color);
 }
+.nav-link::after {
+  content: "";
+  display: block;
+  transform: translatex(-50%) scale(0.3);
+  position: absolute;
+  left: 50%;
+  bottom: 20%;
+  width:90%;
+  height: 4px;
+
+  border-radius: 2px;
+  background-color: var(--accent-color);
+  opacity: 0;
+  transition: transform 250ms opacity 250ms;
+}
+.nav-link:hover::after,
+.nav-link:focus::after {
+  transform: translatex(-50%) scaleX(1);
+  opacity: 1;
+
+}
+.active {
+  color: var(--accent-color);
+}
+
 
 
 
 .auth-link {
+  position: relative;
+  bottom: 0;
   display: flex;
   align-content: center;
   font-weight: 500;
@@ -193,11 +221,35 @@ address {
  gap: 10px;
  justify-content: center;
   align-items: center;
+  padding-bottom: 32px;
+  padding-top: 32px;
 
 }
 .auth-link:hover,
 .auth-link:focus {
   color: #2196F3;
+}
+.auth-link::after {
+  content: "";
+  display: block;
+  transform: translateX(-50%) scale(0.3);
+  position: absolute;
+  left: 50%;
+  bottom: 20%;
+  width:90%;
+  height: 4px;
+
+  border-radius: 2px;
+  background-color: var(--accent-color);
+  opacity: 0;
+  transition: transform 250ms opacity 250ms;
+
+}
+.auth-link:hover::after,
+.auth-link:focus::after {
+  transform: translatex(-50%) scaleX(1);
+  opacity: 1;
+
 }
 .header-icon {
   fill: currentColor;
@@ -489,9 +541,7 @@ transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 .footer-address:focus {
   color: var(--accent-color);
 }
-.footer-socials {
 
-}
 .socials-footer-dark {
 display: flex;
 justify-content: center;
